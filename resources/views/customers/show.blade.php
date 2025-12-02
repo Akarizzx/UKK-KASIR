@@ -3,12 +3,73 @@
 @section('title', 'Customer Details')
 @section('page-title', 'Customer Details - ' . $customer->name)
 
+@section('styles')
+<style>
+    .card-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .card-header i {
+        font-size: 18px;
+    }
+
+    .customer-profile-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .customer-avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+    }
+
+    .customer-profile-info h3 {
+        margin: 0;
+        font-size: 24px;
+    }
+
+    .customer-profile-info p {
+        margin: 5px 0 0 0;
+        opacity: 0.9;
+        font-size: 14px;
+    }
+</style>
+@endsection
+
 @section('content')
+<!-- Customer Profile Header -->
+<div class="customer-profile-header">
+    <div class="customer-avatar">
+        <i class="fas fa-user"></i>
+    </div>
+    <div class="customer-profile-info">
+        <h3>{{ $customer->name }}</h3>
+        <p><i class="fas fa-envelope"></i> {{ $customer->email }}</p>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-md-4">
         <div class="card">
             <div class="card-header">
-                <i class="fas fa-info-circle"></i> Customer Information
+                <i class="fas fa-user-circle"></i> Customer Information
             </div>
             <div class="card-body">
                 <dl class="row">

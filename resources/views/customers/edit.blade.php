@@ -3,12 +3,29 @@
 @section('title', 'Edit Customer')
 @section('page-title', 'Edit Customer')
 
+@section('styles')
+<style>
+    .card-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .card-header i {
+        font-size: 18px;
+    }
+</style>
+@endsection
+
 @section('content')
 <div class="row">
     <div class="col-md-8">
         <div class="card">
             <div class="card-header">
-                <i class="fas fa-edit"></i> Edit Customer
+                <i class="fas fa-user-edit"></i> Edit Customer
             </div>
             <div class="card-body">
                 <form action="{{ route('customers.update', $customer) }}" method="POST">

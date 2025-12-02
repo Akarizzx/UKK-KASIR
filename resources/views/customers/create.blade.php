@@ -3,12 +3,29 @@
 @section('title', 'Add Customer')
 @section('page-title', 'Add New Customer')
 
+@section('styles')
+<style>
+    .card-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .card-header i {
+        font-size: 18px;
+    }
+</style>
+@endsection
+
 @section('content')
 <div class="row">
     <div class="col-md-8">
         <div class="card">
             <div class="card-header">
-                <i class="fas fa-plus"></i> Create New Customer
+                <i class="fas fa-user-plus"></i> Create New Customer
             </div>
             <div class="card-body">
                 <form action="{{ route('customers.store') }}" method="POST">

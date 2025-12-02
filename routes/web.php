@@ -32,13 +32,13 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('suppliers', SupplierController::class);
         Route::resource('products', ProductController::class);
         Route::resource('customers', CustomerController::class);
-        
+
         // Category routes with product management
         Route::resource('categories', CategoryController::class)->except('destroy');
         Route::get('/categories/{category}/manage-products', [CategoryController::class, 'manageProducts'])->name('categories.manage-products');
         Route::post('/categories/{category}/add-product', [CategoryController::class, 'addProduct'])->name('categories.add-product');
         Route::delete('/categories/{category}/remove-product/{product}', [CategoryController::class, 'removeProduct'])->name('categories.remove-product');
-        
+
         Route::resource('employees', EmployeeController::class);
     });
 
