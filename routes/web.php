@@ -45,5 +45,6 @@ Route::middleware(['auth'])->group(function () {
     // Cashier Routes (Can access transactions)
     Route::middleware(['cashier'])->group(function () {
         Route::resource('transactions', TransactionController::class);
+        Route::resource('customers', CustomerController::class);
     });
 });

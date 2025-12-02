@@ -58,16 +58,8 @@
                                     <a href="{{ route('transactions.show', $transaction) }}" class="btn btn-info btn-sm">
                                         <i class="fas fa-eye"></i> View
                                     </a>
-                                    <a href="{{ route('transactions.edit', $transaction) }}" class="btn btn-warning btn-sm">
-                                        <i class="fas fa-edit"></i> Edit
-                                    </a>
-                                    <form action="{{ route('transactions.destroy', $transaction) }}" method="POST" style="display: inline;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">
-                                            <i class="fas fa-trash"></i> Delete
-                                        </button>
-                                    </form>
+                                    
+
                                 </div>
                             </td>
                         </tr>

@@ -15,8 +15,9 @@ class Customer extends Model
         'state',
     ];
 
-    public function transactions()
-    {
-        return $this->hasMany(Transaction::class);
-    }
+   public function transactions()
+{
+    return $this->hasMany(Transaction::class, 'customer_id');
+}
+
 }

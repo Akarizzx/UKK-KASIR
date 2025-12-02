@@ -6,7 +6,7 @@
 @section('styles')
 <style>
     .card-header {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #1376f8ff  0%, #1376f8ff  100%);
         color: white;
         border: none;
         display: flex;

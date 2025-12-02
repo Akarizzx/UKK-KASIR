@@ -89,16 +89,8 @@
                 <hr>
 
                 <div class="d-flex gap-2">
-                    <a href="{{ route('transactions.edit', $transaction) }}" class="btn btn-warning btn-sm">
-                        <i class="fas fa-edit"></i> Edit
-                    </a>
-                    <form action="{{ route('transactions.destroy', $transaction) }}" method="POST" style="display: inline;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">
-                            <i class="fas fa-trash"></i> Delete
-                        </button>
-                    </form>
+                   
+
                     <a href="{{ route('transactions.index') }}" class="btn btn-secondary btn-sm">
                         <i class="fas fa-arrow-left"></i> Back
                     </a>

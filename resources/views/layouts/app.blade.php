@@ -303,13 +303,16 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('customers.index') }}" class="@if(request()->routeIs('customers.*')) active @endif">
-                        <i class="fas fa-user-friends"></i> Customers
-                    </a>
-                </li>
-                <li>
                     <a href="{{ route('employees.index') }}" class="@if(request()->routeIs('employees.*')) active @endif">
                         <i class="fas fa-users"></i> Employees
+                    </a>
+                </li>
+            @endif
+
+            @if(auth()->user()->role === 'admin' || auth()->user()->role === 'cashier')
+                <li>
+                    <a href="{{ route('customers.index') }}" class="@if(request()->routeIs('customers.*')) active @endif">
+                        <i class="fas fa-user-friends"></i> Customers
                     </a>
                 </li>
             @endif
