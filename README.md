@@ -224,6 +224,9 @@ npm run build
 
 ![Entity Relationship Diagram](./ERD.png)
 
+##  Unified Modeling Language (UML)
+
+![Unified Modeling Language](./UML.png)
 ### Struktur Entity:
 
 **USERS**
