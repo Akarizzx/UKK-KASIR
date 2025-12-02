@@ -304,7 +304,7 @@
                 </li>
                 <li>
                     <a href="{{ route('customers.index') }}" class="@if(request()->routeIs('customers.*')) active @endif">
-                        <i class="fas fa-users-alt"></i> Customers
+                        <i class="fas fa-user-friends"></i> Customers
                     </a>
                 </li>
                 <li>
