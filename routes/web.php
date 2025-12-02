@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\AuthController;
 
 // Auth Routes
@@ -30,6 +31,7 @@ Route::middleware(['auth'])->group(function () {
 
         Route::resource('suppliers', SupplierController::class);
         Route::resource('products', ProductController::class);
+        Route::resource('customers', CustomerController::class);
         
         // Category routes with product management
         Route::resource('categories', CategoryController::class)->except('destroy');

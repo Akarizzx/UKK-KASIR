@@ -35,7 +35,7 @@
                             <td>{{ $customer->phone ?? '-' }}</td>
                             <td>{{ $customer->city ?? '-' }}</td>
                             <td>
-                                <span class="badge bg-info">{{ $customer->transactions_count }}</span>
+                                <span class="badge bg-info">{{ $customer->transactions()->count() }}</span>
                             </td>
                             <td>
                                 <div class="action-buttons d-flex">
