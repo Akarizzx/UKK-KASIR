@@ -222,97 +222,103 @@ npm run build
 
 ## 🗺️ Entity Relationship Diagram (ERD)
 
-```
-┌─────────────────┐
-│     USERS       │
-├─────────────────┤
-│ id (PK)         │
-│ name            │
-│ email (UNIQUE)  │
-│ password        │
-│ role            │
-│ created_at      │
-│ updated_at      │
-└─────────────────┘
-        │
-        │ 1:1
-        └─────────────────────────────┐
-                                      │
-                            ┌─────────────────────┐
-                            │    EMPLOYEES        │
-                            ├─────────────────────┤
-                            │ id (PK)             │
-                            │ user_id (FK)        │
-                            │ name                │
-                            │ phone               │
-                            │ address             │
-                            │ position            │
-                            │ hire_date           │
-                            │ created_at          │
-                            │ updated_at          │
-                            └─────────────────────┘
+![Entity Relationship Diagram](https://raw.githubusercontent.com/Akarizzx/UKK-KASIR/main/erd.png)
 
-┌─────────────────────┐
-│   CATEGORIES        │
-├─────────────────────┤
-│ id (PK)             │
-│ name                │
-│ description         │
-│ created_at          │
-│ updated_at          │
-└─────────────────────┘
-        │
-        │ 1:N
-        └──────────────────────────────┐
-                                       │
-                            ┌──────────────────────┐
-                            │     PRODUCTS         │
-                            ├──────────────────────┤
-                            │ id (PK)              │
-                            │ category_id (FK)     │
-                            │ supplier_id (FK)     │
-                            │ name                 │
-                            │ sku                  │
-                            │ price                │
-                            │ stock                │
-                            │ description          │
-                            │ photo                │
-                            │ created_at           │
-                            │ updated_at           │
-                            └──────────────────────┘
-                                       │
-                                       │ 1:N
-                                       │
-                            ┌──────────────────────┐
-                            │   TRANSACTIONS       │
-                            ├──────────────────────┤
-                            │ id (PK)              │
-                            │ product_id (FK)      │
-                            │ transaction_code     │
-                            │ type (sales/return)  │
-                            │ quantity             │
-                            │ price                │
-                            │ total                │
-                            │ created_at           │
-                            │ updated_at           │
-                            └──────────────────────┘
+### Struktur Entity:
 
-┌─────────────────────┐
-│    SUPPLIERS        │
-├─────────────────────┤
-│ id (PK)             │
-│ name                │
-│ contact             │
-│ phone               │
-│ address             │
-│ city                │
-│ created_at          │
-│ updated_at          │
-└─────────────────────┘
-        │
-        │ 1:N
-        └──────────┘ (Relasi ke Products)
-```
+**USERS**
+
+-   id (PK) - BigInt
+-   name - Varchar(255)
+-   email (UNIQUE) - Varchar(255)
+-   email_verified_at - Timestamp (nullable)
+-   password - Varchar(255)
+-   role - Enum(admin, cashier)
+-   remember_token - Varchar(100) (nullable)
+-   created_at - Timestamp
+-   updated_at - Timestamp
+
+**EMPLOYEES**
+
+-   id (PK) - BigInt
+-   user_id (FK) - BigInt
+-   name - Varchar(255)
+-   email - Varchar(255)
+-   phone - Varchar(255)
+-   address - Text
+-   city - Varchar(255)
+-   state - Varchar(255)
+-   hire_date - Date
+-   photo - Varchar(255) (nullable)
+-   status - Enum(active, inactive)
+-   created_at - Timestamp
+-   updated_at - Timestamp
+
+**CATEGORIES**
+
+-   id (PK) - BigInt
+-   name - Varchar(255)
+-   description - Text (nullable)
+-   created_at - Timestamp
+-   updated_at - Timestamp
+
+**PRODUCTS**
+
+-   id (PK) - BigInt
+-   category_id (FK) - BigInt
+-   supplier_id (FK) - BigInt
+-   name - Varchar(255)
+-   sku - Varchar(255)
+-   price - Decimal(10,2)
+-   stock - Int
+-   description - Text (nullable)
+-   photo - Varchar(255) (nullable)
+-   created_at - Timestamp
+-   updated_at - Timestamp
+
+**SUPPLIERS**
+
+-   id (PK) - BigInt
+-   name - Varchar(255)
+-   contact_person - Varchar(255)
+-   phone - Varchar(255)
+-   email - Varchar(255)
+-   address - Text
+-   city - Varchar(255)
+-   state - Varchar(255)
+-   created_at - Timestamp
+-   updated_at - Timestamp
+
+**TRANSACTIONS**
+
+-   id (PK) - BigInt
+-   product_id (FK) - BigInt
+-   quantity - Decimal(10,2)
+-   unit_price - Decimal(10,2)
+-   total_price - Decimal(10,2)
+-   transaction_code - Varchar(255)
+-   type - Varchar(255)
+-   created_at - Timestamp
+-   updated_at - Timestamp
+
+**CUSTOMERS**
+
+-   id (PK) - BigInt
+-   name - Varchar(255)
+-   email - Varchar(255) (nullable)
+-   phone - Varchar(255) (nullable)
+-   address - Text (nullable)
+-   city - Varchar(255) (nullable)
+-   state - Varchar(255) (nullable)
+-   created_at - Timestamp
+-   updated_at - Timestamp
+
+### Relasi Database:
+
+-   **USERS ↔ EMPLOYEES**: 1:1 (Setiap user bisa memiliki 1 employee)
+-   **CATEGORIES ↔ PRODUCTS**: 1:N (1 kategori memiliki banyak produk)
+-   **SUPPLIERS ↔ PRODUCTS**: 1:N (1 supplier memiliki banyak produk)
+-   **PRODUCTS ↔ TRANSACTIONS**: 1:N (1 produk bisa terlibat dalam banyak transaksi)
 
 ## 📄 Lisensi
 
